@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VATOS CUTS</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@300;400;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<!-- BARRA NAVEGACIÓN MOBILE -->
+<nav class="bottom-nav">
+  <a href="#categoria-bar" class="bottom-nav-item active" id="bn-catalogo">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/>
+      <rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/>
+    </svg>
+    <span>Catálogo</span>
+  </a>
+  <a href="#local" class="bottom-nav-item" id="bn-lacasa">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
+      <polyline points="9 22 9 12 15 12 15 22"/>
+    </svg>
+    <span>La Casa</span>
+  </a>
+  <button class="bottom-nav-item" onclick="openCart()" id="bn-carrito">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
+      <path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 001.95-1.57l1.65-8.42H6"/>
+    </svg>
+    <span>Carrito <span class="bn-count" id="bnCount">0</span></span>
+  </button>
+</nav>
+<body>
+
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <!-- OVERLAY -->
+  <div class="overlay" id="overlay" onclick="closeCart()"></div>
+
+  <!-- CARRITO SIDEBAR -->
+  <div class="cart-sidebar" id="cartSidebar">
+    <div class="cart-header">
+      <h2>Tu Pedido</h2>
+      <button class="close-cart" onclick="closeCart()">✕</button>
+    </div>
+    <div class="cart-items" id="cartItems">
+      <div class="cart-empty">
+        CARRITO VACÍO<br><br>
+        <span>// AGREGÁ PRODUCTOS</span>
+      </div>
+    </div>
+    <div class="cart-footer">
+      <div class="cart-total">
+        <span class="cart-total-label">Total</span>
+        <span class="cart-total-amount" id="cartTotal">$0</span>
+      </div>
+      <button class="wpp-btn" onclick="sendToWhatsApp()">
+        <svg class="wpp-icon" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+        Pedir por WhatsApp
+      </button>
+    </div>
+  </div>
+
+  <!-- NAVBAR -->
+  <nav>
+    <div class="logo">Vatos Cuts</div>
+    <ul class="nav-links">
+      <li><a href="#categoria-bar">Catálogo</a></li>
+      <li><a href="#local">La Casa</a></li>
+    </ul>
+    <button class="cart-btn" onclick="openCart()">
+      <span>Carrito</span>
+      <span class="cart-count" id="cartCount">0</span>
+    </button>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-grid"></div>
+    <div class="hero-content">
+      <div class="hero-tag">// Buenos Aires — Est. 2024</div>
+      <h1>
+        VATOS<br>
+        <span class="h1-accent">CUTS</span>
+      </h1>
+      <p class="hero-sub">Barber Shop</p>
+    </div>
+    <div class="hero-scroll">Scroll</div>
+  </section>
+
+  <!-- CATEGORIAS -->
+  <div class="category-bar" id="categoria-bar">
+    <div class="section-header">
+      <span class="section-num">01</span>
+      <h2 class="section-title">Catálogo</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="cat-tabs">
+      <button class="cat-tab active" onclick="filterProducts('all', this)">Todo</button>
+  <button class="cat-tab" onclick="filterProducts('barber', this)">Barber</button>
+  <button class="cat-tab" onclick="filterProducts('fragancia', this)">Fragancia</button>
+  <button class="cat-tab" onclick="filterProducts('accesorios', this)">Accesorios</button>
+    </div>
+  </div>
+
+  <!-- CATALOGO -->
+  <section id="catalogo">
+    <div class="products-grid" id="productsGrid"></div>
+  </section>
+
+  <!-- LA CASA -->
+  <section id="local">
+    <div class="section-header">
+      <span class="section-num">02</span>
+      <h2 class="section-title">La Casa</h2>
+      <div class="section-line"></div>
+    </div>
+
+    <div class="video-container">
+      <div class="video-placeholder">
+        <div class="video-play-icon">▶</div>
+        <span>// Reemplazá este div por tu &lt;video&gt; o &lt;iframe&gt;</span>
+      </div>
+      <div class="video-label">🔴 Live desde Vatos Cuts</div>
+    </div>
+
+    <div class="gallery-grid">
+      <div class="gallery-item">
+        <span>📸</span>
+        <div class="gallery-label">// Imagen principal</div>
+      </div>
+      <div class="gallery-item">
+        <span>✂</span>
+        <div class="gallery-label">// Foto 2</div>
+      </div>
+      <div class="gallery-item">
+        <span>💈</span>
+        <div class="gallery-label">// Foto 3</div>
+      </div>
+      <div class="gallery-item">
+        <span>🧴</span>
+        <div class="gallery-label">// Foto 4</div>
+      </div>
+      <div class="gallery-item">
+        <span>🎧</span>
+        <div class="gallery-label">// Foto 5</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">Vatos Cuts</div>
+    <div class="footer-copy">© 2025 Vatos Cuts — Todos los derechos reservados</div>
+  </footer>
+
+  <!-- TOAST -->
+  <div class="toast" id="toast"></div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
