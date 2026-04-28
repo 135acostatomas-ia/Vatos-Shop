@@ -4,34 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>VATOS CUTS</title>
+  <link rel="icon">
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@300;400;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="styles.css">
 </head>
-
-<!-- BARRA NAVEGACIÓN MOBILE -->
-<nav class="bottom-nav">
-  <a href="#categoria-bar" class="bottom-nav-item active" id="bn-catalogo">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-      <rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/>
-      <rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/>
-    </svg>
-    <span>Catálogo</span>
-  </a>
-  <a href="#local" class="bottom-nav-item" id="bn-lacasa">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-      <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
-      <polyline points="9 22 9 12 15 12 15 22"/>
-    </svg>
-    <span>La Casa</span>
-  </a>
-  <button class="bottom-nav-item" onclick="openCart()" id="bn-carrito">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-      <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
-      <path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 001.95-1.57l1.65-8.42H6"/>
-    </svg>
-    <span>Carrito <span class="bn-count" id="bnCount">0</span></span>
-  </button>
-</nav>
 <body>
 
   <div class="cursor" id="cursor"></div>
@@ -68,22 +44,25 @@
 
   <!-- NAVBAR -->
   <nav>
-    <div class="logo">Vatos Cuts</div>
-    <ul class="nav-links">
-      <li><a href="#categoria-bar">Catálogo</a></li>
-      <li><a href="#local">La Casa</a></li>
-    </ul>
-    <button class="cart-btn" onclick="openCart()">
-      <span>Carrito</span>
-      <span class="cart-count" id="cartCount">0</span>
-    </button>
-  </nav>
+  <a href="#hero" class="logo">
+    <img src="img/brand/logo.png" alt="Vatos Cuts" class="logo-img">
+  </a>
+  <ul class="nav-links">
+    <li><a href="#categoria-bar">Catálogo</a></li>
+    <li><a href="#local">La Casa</a></li>
+  </ul>
+  <button class="cart-btn" onclick="openCart()">
+    <span>Carrito</span>
+    <span class="cart-count" id="cartCount">0</span>
+  </button>
+</nav>
 
   <!-- HERO -->
   <section id="hero">
     <div class="hero-bg"></div>
     <div class="hero-grid"></div>
     <div class="hero-content">
+      <img src="img/brand/logo.png" alt="Vatos Cuts" class="hero-logo">
       <div class="hero-tag">// Buenos Aires — Est. 2024</div>
       <h1>
         VATOS<br>
@@ -103,9 +82,9 @@
     </div>
     <div class="cat-tabs">
       <button class="cat-tab active" onclick="filterProducts('all', this)">Todo</button>
-  <button class="cat-tab" onclick="filterProducts('barber', this)">Barber</button>
-  <button class="cat-tab" onclick="filterProducts('fragancia', this)">Fragancia</button>
-  <button class="cat-tab" onclick="filterProducts('accesorios', this)">Accesorios</button>
+      <button class="cat-tab" onclick="filterProducts('barber', this)">Barber</button>
+      <button class="cat-tab" onclick="filterProducts('fragancia', this)">Fragancia</button>
+      <button class="cat-tab" onclick="filterProducts('accesorios', this)">Accesorios</button>
     </div>
   </div>
 
@@ -163,6 +142,31 @@
   <!-- TOAST -->
   <div class="toast" id="toast"></div>
 
-  <script src="js/main.js"></script>
+  <!-- BARRA NAVEGACIÓN MOBILE -->
+  <nav class="bottom-nav">
+    <a href="#categoria-bar" class="bottom-nav-item active" id="bn-catalogo">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/>
+        <rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/>
+      </svg>
+      <span>Catálogo</span>
+    </a>
+    <a href="#local" class="bottom-nav-item" id="bn-lacasa">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
+        <polyline points="9 22 9 12 15 12 15 22"/>
+      </svg>
+      <span>La Casa</span>
+    </a>
+    <button class="bottom-nav-item" onclick="openCart()" id="bn-carrito">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
+        <path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 001.95-1.57l1.65-8.42H6"/>
+      </svg>
+      <span>Carrito <span class="bn-count" id="bnCount">0</span></span>
+    </button>
+  </nav>
+
+  <script src="main.js"></script>
 </body>
 </html>
