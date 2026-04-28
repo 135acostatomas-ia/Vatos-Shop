@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>VATOS CUTS</title>
+  <title>VATOS STUDIO</title>
   <link rel="icon">
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@300;400;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
@@ -45,7 +45,7 @@
   <!-- NAVBAR -->
   <nav>
   <a href="#hero" class="logo">
-    <img src="img/brand/logo.png" alt="Vatos Cuts" class="logo-img">
+    <img src="img/brand/logo.png" alt="Vatos Studio" class="logo-img">
   </a>
   <ul class="nav-links">
     <li><a href="#categoria-bar">Catálogo</a></li>
@@ -62,13 +62,17 @@
     <div class="hero-bg"></div>
     <div class="hero-grid"></div>
     <div class="hero-content">
-      <img src="img/brand/logo.png" alt="Vatos Cuts" class="hero-logo">
-      <div class="hero-tag">// Buenos Aires — Est. 2024</div>
+      <img src="img/brand/logo.png" alt="Vatos Studio" class="hero-logo">
+      <div class="hero-tag">// Sarratea 141 — Boulogne Sur Mer</div>
       <h1>
         VATOS<br>
-        <span class="h1-accent">CUTS</span>
+        <span class="h1-accent">STUDIO</span>
       </h1>
       <p class="hero-sub">Barber Shop</p>
+<button class="reservar-btn" onclick="openBarberModal()">
+  <span>📅</span>
+  Reservar turno
+</button>
     </div>
     <div class="hero-scroll">Scroll</div>
   </section>
@@ -95,11 +99,24 @@
 
   <!-- LA CASA -->
   <section id="local">
-    <div class="section-header">
-      <span class="section-num">02</span>
-      <h2 class="section-title">La Casa</h2>
-      <div class="section-line"></div>
+  <div class="section-header">
+    <span class="section-num">02</span>
+    <h2 class="section-title">La Casa</h2>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="local-info">
+    <div class="local-info-item">
+      <span class="local-info-icon">📍</span>
+      <span>Sarratea 141 — Boulogne Sur Mer</span>
     </div>
+    <div class="local-info-item">
+      <span class="local-info-icon">🕐</span>
+      <span>Lunes a Sábados: 10:00 — 20:00</span>
+    </div>
+  </div>
+
+  <div class="video-container">
 
     <div class="video-container">
   <video autoplay muted loop playsinline preload="auto" poster="img/brand/logo.png">
@@ -110,7 +127,7 @@
 
     <div class="gallery-grid">
   <div class="gallery-item gallery-tall">
-    <img src="img/local/local-2.png" alt="Vatos Cuts — local 2">
+    <img src="img/local/local-2.png" alt="Vatos Studio — local 2">
   </div>
   <div class="gallery-item">
     <span>🧴</span>
@@ -121,16 +138,42 @@
     <div class="gallery-label">// Foto 5</div>
   </div>
   <div class="gallery-item gallery-main">
-    <img src="img/local/local-1.png" alt="Vatos Cuts — local 1">
+    <img src="img/local/local-1.png" alt="Vatos Studio — local 1">
   </div>
 </div>
   </section>
 
   <!-- FOOTER -->
   <footer>
-    <div class="footer-logo">Vatos Cuts</div>
-    <div class="footer-copy">© 2021 Vatos Cuts — Todos los derechos reservados</div>
+    <div class="footer-logo">Vatos Studio</div>
+    <div class="footer-copy">© 2021 Vatos Studio — Todos los derechos reservados</div>
   </footer>
+
+<!-- MODAL ELEGIR BARBERO -->
+<div class="overlay" id="barberOverlay" onclick="closeBarberModal()"></div>
+<div class="barber-modal" id="barberModal">
+  <div class="barber-modal-header">
+    <h2>Elegí tu barbero</h2>
+    <button class="close-cart" onclick="closeBarberModal()">✕</button>
+  </div>
+  <div class="barber-modal-body">
+    <p class="barber-modal-tag">// Coordiná tu turno por WhatsApp</p>
+    <button class="barber-card" onclick="bookBarber('luca')">
+      <div class="barber-icon">✂</div>
+      <div class="barber-info">
+        <div class="barber-name">Luca</div>
+        <div class="barber-action">Coordinar turno →</div>
+      </div>
+    </button>
+    <button class="barber-card" onclick="bookBarber('leandro')">
+      <div class="barber-icon">✂</div>
+      <div class="barber-info">
+        <div class="barber-name">Leandro</div>
+        <div class="barber-action">Coordinar turno →</div>
+      </div>
+    </button>
+  </div>
+</div>
 
   <!-- TOAST -->
   <div class="toast" id="toast"></div>
@@ -151,6 +194,15 @@
       </svg>
       <span>La Casa</span>
     </a>
+    <button class="bottom-nav-item" onclick="openBarberModal()" id="bn-turno">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+    <line x1="16" y1="2" x2="16" y2="6"/>
+    <line x1="8" y1="2" x2="8" y2="6"/>
+    <line x1="3" y1="10" x2="21" y2="10"/>
+  </svg>
+  <span>Turno</span>
+</button>
     <button class="bottom-nav-item" onclick="openCart()" id="bn-carrito">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>

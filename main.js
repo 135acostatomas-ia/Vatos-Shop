@@ -1,5 +1,5 @@
 /* ============================================
-   VATOS CUTS — main.js
+   VATOS STUDIO — main.js
    ============================================
    Índice:
    1. Configuración
@@ -234,7 +234,7 @@ function sendToWhatsApp() {
   const total = cart.reduce((acc, i) => acc + i.price * i.qty, 0);
 
   const msg = [
-    `🛒 *Pedido desde Vatos Cuts*`,
+    `🛒 *Pedido desde Vatos Studio*`,
     ``,
     ...lines,
     ``,
@@ -295,3 +295,27 @@ document.querySelectorAll('button, a, .product-card').forEach(el => {
 /* ── 9. INIT ──────────────────────────────── */
 
 renderProducts();
+
+const BARBEROS = {
+  luca:    { name: "Luca",    wpp: "5491156431982" },
+  leandro: { name: "Leandro", wpp: "5491126556031" }
+};
+
+function openBarberModal() {
+  document.getElementById('barberModal').classList.add('open');
+  document.getElementById('barberOverlay').classList.add('active');
+}
+
+function closeBarberModal() {
+  document.getElementById('barberModal').classList.remove('open');
+  document.getElementById('barberOverlay').classList.remove('active');
+}
+
+function bookBarber(barberoId) {
+  const b = BARBEROS[barberoId];
+  if (!b) return;
+  const msg = `Hola ${b.name}! Quiero coordinar un turno en Vatos Studio 💈`;
+  const url = `https://wa.me/${b.wpp}?text=${encodeURIComponent(msg)}`;
+  window.open(url, '_blank');
+  closeBarberModal();
+}
