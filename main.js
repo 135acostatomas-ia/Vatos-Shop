@@ -19,7 +19,7 @@
 // ← REEMPLAZÁ con tu número de WhatsApp
 // Formato: código de país + código de área + número
 // Ejemplo Argentina: 549 + 11 + 12345678 = "5491112345678"
-const WPP_NUMBER = "5491100000000";
+const WPP_NUMBER = "5491164562757";
 
 
 /* ── 2. PRODUCTOS ─────────────────────────── */
@@ -64,8 +64,8 @@ function addToCart(id) {
   const exists = cart.find(i => i.id === id);
 
   if (exists) {
-    cart = cart.filter(i => i.id !== id);
-    showToast(`${product.name} — Eliminado del carrito`);
+    exists.qty += 1;
+    showToast(`${product.name} — Cantidad: ${exists.qty}`);
   } else {
     cart.push({ ...product, qty: 1 });
     showToast(`${product.name} — Agregado ✓`);
@@ -75,12 +75,48 @@ function addToCart(id) {
   renderProducts(activeFilter);
 }
 
+function increaseQty(id) {
+  const item = cart.find(i => i.id === id);
+  if (!item) return;
+  item.qty += 1;
+  updateCartUI();
+  renderProducts(activeFilter);
+}
+
+function decreaseQty(id) {
+  const item = cart.find(i => i.id === id);
+  if (!item) return;
+
+  if (item.qty > 1) {
+    item.qty -= 1;
+  } else {
+    cart = cart.filter(i => i.id !== id);
+    showToast(`${item.name} — Eliminado`);
+  }
+
+  updateCartUI();
+  renderProducts(activeFilter);
+}
+
+function removeFromCart(id) {
+  const item = cart.find(i => i.id === id);
+  if (!item) return;
+  cart = cart.filter(i => i.id !== id);
+  showToast(`${item.name} — Eliminado`);
+  updateCartUI();
+  renderProducts(activeFilter);
+}
+
 function updateCartUI() {
   const countEl  = document.getElementById('cartCount');
   const itemsEl  = document.getElementById('cartItems');
   const totalEl  = document.getElementById('cartTotal');
+  const bnCountEl = document.getElementById('bnCount');
 
-  countEl.textContent = cart.length;
+  // Suma total de unidades
+  const totalQty = cart.reduce((acc, i) => acc + i.qty, 0);
+  countEl.textContent = totalQty;
+  if (bnCountEl) bnCountEl.textContent = totalQty;
 
   const total = cart.reduce((acc, i) => acc + i.price * i.qty, 0);
   totalEl.textContent = `$${total.toLocaleString('es-AR')}`;
@@ -100,8 +136,13 @@ function updateCartUI() {
       <div class="cart-item-info">
         <div class="cart-item-name">${i.name}</div>
         <div class="cart-item-price">$${(i.price * i.qty).toLocaleString('es-AR')}</div>
+        <div class="qty-controls">
+          <button class="qty-btn" onclick="decreaseQty(${i.id})">−</button>
+          <span class="qty-num">${i.qty}</span>
+          <button class="qty-btn" onclick="increaseQty(${i.id})">+</button>
+        </div>
       </div>
-      <button class="cart-item-remove" onclick="addToCart(${i.id})">✕</button>
+      <button class="cart-item-remove" onclick="removeFromCart(${i.id})">✕</button>
     </div>
   `).join('');
 }
@@ -131,10 +172,23 @@ function renderProducts(filter = 'all') {
       ? `<div class="product-tag tag-${p.tag}">${p.tag === 'new' ? 'Nuevo' : 'Hot'}</div>`
       : '';
 
-    // Si el producto tiene imagen usa <img>, si no usa emoji
     const mediaHTML = p.img
       ? `<img class="product-img" src="${p.img}" alt="${p.name}">`
       : `<div class="product-placeholder">${p.emoji}</div>`;
+
+    const buttonHTML = inCart
+      ? `
+        <div class="card-qty-controls">
+          <button class="qty-btn" onclick="event.stopPropagation(); decreaseQty(${p.id})">−</button>
+          <span class="qty-num">${inCart.qty}</span>
+          <button class="qty-btn" onclick="event.stopPropagation(); increaseQty(${p.id})">+</button>
+        </div>
+      `
+      : `
+        <button class="add-btn" onclick="addToCart(${p.id})">
+          + Agregar
+        </button>
+      `;
 
     return `
       <div class="product-card" data-id="${p.id}">
@@ -142,9 +196,7 @@ function renderProducts(filter = 'all') {
           ${mediaHTML}
           ${tagHTML}
           <div class="card-overlay">
-            <button class="add-btn ${inCart ? 'added' : ''}" onclick="addToCart(${p.id})">
-              ${inCart ? '✓ Agregado' : '+ Agregar'}
-            </button>
+            ${buttonHTML}
           </div>
         </div>
         <div class="product-info">
@@ -177,7 +229,7 @@ function sendToWhatsApp() {
   }
 
   const lines = cart.map(i =>
-    `• ${i.name} — $${(i.price * i.qty).toLocaleString('es-AR')}`
+    `• ${i.name} x${i.qty} — $${(i.price * i.qty).toLocaleString('es-AR')}`
   );
   const total = cart.reduce((acc, i) => acc + i.price * i.qty, 0);
 
