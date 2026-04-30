@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>VATOS STUDIO</title>
-  <link rel="icon">
+  <link rel="icon" type="image/png" href="img/brand/image-logo.png">
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@300;400;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
@@ -85,12 +85,20 @@
       <div class="section-line"></div>
     </div>
     <div class="cat-tabs">
-      <button class="cat-tab active" onclick="filterProducts('all', this)">Todo</button>
-      <button class="cat-tab" onclick="filterProducts('barber', this)">Barber</button>
-      <button class="cat-tab" onclick="filterProducts('fragancia', this)">Fragancia</button>
-      <button class="cat-tab" onclick="filterProducts('accesorios', this)">Accesorios</button>
-    </div>
-  </div>
+  <button class="cat-tab" onclick="filterProducts('barber', this)">Barber</button>
+  <button class="cat-tab" onclick="filterProducts('fragancia', this)">Fragancia</button>
+  <button class="cat-tab" onclick="filterProducts('accesorios', this)">Accesorios</button>
+</div>
+
+<!-- Sub-tabs de Barber (ocultos por defecto) -->
+<div class="sub-tabs" id="subTabsBarber">
+  <button class="sub-tab" onclick="filterBrand('sirfausto', this)">Sir Fausto</button>
+  <button class="sub-tab" onclick="filterBrand('marca2', this)">Marca 2</button>
+  <button class="sub-tab" onclick="filterBrand('otros', this)">Otros</button>
+</div>
+
+<!-- Banner de marca (oculto hasta seleccionar) -->
+<div class="brand-banner" id="brandBanner"></div>
 
   <!-- CATALOGO -->
   <section id="catalogo">
@@ -215,3 +223,6 @@
   <script src="main.js"></script>
 </body>
 </html>
+02
+]
+.0'pa.

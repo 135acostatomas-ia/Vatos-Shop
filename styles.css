@@ -1196,3 +1196,100 @@ footer {
     gap: 0.8rem;
   }
 }
+
+/* ── 19. CATÁLOGO MARCAS ─────────────────────── */
+
+/* Sub-tabs (Sir Fausto, Marca 2, Otros) */
+.sub-tabs {
+  display: none;
+  gap: 0;
+  border: 1px solid var(--gris-borde);
+  width: fit-content;
+  margin-top: 1rem;
+}
+.sub-tabs.active {
+  display: flex;
+}
+
+.sub-tab {
+  padding: 0.6rem 1.4rem;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  background: transparent;
+  color: var(--texto-muted);
+  border: none;
+  border-right: 1px solid var(--gris-borde);
+  cursor: none;
+  transition: all 0.2s;
+}
+.sub-tab:last-child { border-right: none; }
+.sub-tab:hover { color: var(--violeta); background: rgba(124,58,237,0.05); }
+.sub-tab.active { background: var(--violeta); color: #fff; }
+
+/* Banner de marca */
+.brand-banner {
+  display: none;
+  margin-top: 2rem;
+  width: 100%;
+  aspect-ratio: 21/6;
+  background: var(--gris);
+  border: 1px solid var(--gris-borde);
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+.brand-banner.active {
+  display: flex;
+}
+
+.brand-banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.brand-banner-placeholder {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 3rem;
+  letter-spacing: 0.15em;
+  color: var(--verde-fluor);
+  text-shadow: 0 0 30px rgba(170,255,0,0.4);
+}
+
+/* Estado vacío del catálogo */
+.empty-state {
+  grid-column: 1 / -1;
+  padding: 5rem 2rem;
+  text-align: center;
+  border: 1px dashed var(--gris-borde);
+}
+
+.empty-state-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2rem;
+  letter-spacing: 0.1em;
+  color: var(--verde-fluor);
+  margin-bottom: 0.5rem;
+}
+
+.empty-state-text {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  color: var(--texto-muted);
+  text-transform: uppercase;
+}
+
+@media (max-width: 768px) {
+  .sub-tabs {
+    flex-wrap: wrap;
+  }
+  .brand-banner {
+    aspect-ratio: 16/9;
+  }
+}

@@ -30,27 +30,21 @@ const WPP_NUMBER = "5491164562757";
 // "img": "img/productos/nombre-archivo.jpg"
 
 const PRODUCTS = [
-  // BARBER
-  { id: 1, name: "Pomada Mate Premium",   cat: "barber",     price: 3500,  emoji: "🧴", tag: "new" },
-  { id: 2, name: "Cera Modeladora Gold",  cat: "barber",     price: 4200,  emoji: "✨", tag: null  },
-  { id: 3, name: "Shampoo Anticaída",     cat: "barber",     price: 2800,  emoji: "💧", tag: null  },
-  { id: 4, name: "Aceite de Barba",       cat: "barber",     price: 3200,  emoji: "🧔", tag: "hot" },
-  { id: 5, name: "Balm Hidratante",       cat: "barber",     price: 2900,  emoji: "🌿", tag: null  },
-  { id: 6, name: "Peine de Sándalo",      cat: "barber",     price: 1800,  emoji: "🪮", tag: null  },
-  
+  // SIR FAUSTO
+  { id: 1, name: "Pomada Mate Premium",   cat: "barber", brand: "sirfausto", price: 3500,  emoji: "🧴", tag: "new" },
+  { id: 2, name: "Cera Modeladora Gold",  cat: "barber", brand: "sirfausto", price: 4200,  emoji: "✨", tag: null  },
+  { id: 3, name: "Shampoo Anticaída",     cat: "barber", brand: "sirfausto", price: 2800,  emoji: "💧", tag: null  },
+  { id: 4, name: "Aceite de Barba",       cat: "barber", brand: "sirfausto", price: 3200,  emoji: "🧔", tag: "hot" },
+  { id: 5, name: "Balm Hidratante",       cat: "barber", brand: "sirfausto", price: 2900,  emoji: "🌿", tag: null  },
+
   // FRAGANCIA
-  { id: 7, name: "Perfume Masculino",     cat: "fragancia",  price: 12000, emoji: "🫧", tag: "new" },
-  { id: 8, name: "Desodorante Stick",     cat: "fragancia",  price: 2500,  emoji: "🧼", tag: null  },
-  { id: 9, name: "Body Splash",           cat: "fragancia",  price: 4800,  emoji: "💨", tag: null  },
+  { id: 7, name: "Campeón Varsity",       cat: "fragancia",  price: 18500, emoji: "🧥", tag: "new" },
+  { id: 8, name: "Gorra Snapback VC",     cat: "fragancia",  price: 6500,  emoji: "🧢", tag: "hot" },
 
   // ACCESORIOS
-  { id: 10, name: "Gorra Snapback VC",    cat: "accesorios", price: 6500,  emoji: "🧢", tag: "hot" },
-  { id: 11, name: "Remera Oversize",      cat: "accesorios", price: 9800,  emoji: "👕", tag: null  },
-  { id: 12, name: "Campeón Varsity",      cat: "accesorios", price: 18500, emoji: "🧥", tag: "new" },
-  { id: 13, name: "Parlante Bluetooth",   cat: "accesorios", price: 22000, emoji: "🔊", tag: "hot" },
-  { id: 14, name: "Auriculares TWS",      cat: "accesorios", price: 15000, emoji: "🎧", tag: null  },
-  { id: 15, name: "Cargador Inalámbrico", cat: "accesorios", price: 8500,  emoji: "⚡", tag: "new" },
-   ];
+  { id: 10, name: "Parlante Bluetooth",   cat: "accesorios", price: 22000, emoji: "🔊", tag: "hot" },
+  { id: 11, name: "Auriculares TWS",      cat: "accesorios", price: 15000, emoji: "🎧", tag: null  },
+];
 
 /* ── 3. CARRITO ───────────────────────────── */
 
@@ -212,11 +206,108 @@ function renderProducts(filter = 'all') {
 
 /* ── 5. FILTRO CATEGORÍAS ─────────────────── */
 
+let activeBrand = null;
+
 function filterProducts(cat, btn) {
   activeFilter = cat;
+  activeBrand = null;
+  
+  // Marcar tab activa
   document.querySelectorAll('.cat-tab').forEach(t => t.classList.remove('active'));
   btn.classList.add('active');
-  renderProducts(cat);
+  
+  // Mostrar/ocultar sub-tabs de Barber
+  const subTabs = document.getElementById('subTabsBarber');
+  const banner = document.getElementById('brandBanner');
+  
+  if (cat === 'barber') {
+    subTabs.classList.add('active');
+    // Limpiar selección anterior de sub-tabs
+    document.querySelectorAll('.sub-tab').forEach(t => t.classList.remove('active'));
+    banner.classList.remove('active');
+    // Mostrar mensaje "Elegí una marca"
+    document.getElementById('productsGrid').innerHTML = `
+      <div class="empty-state">
+        <div class="empty-state-title">Elegí una marca</div>
+        <div class="empty-state-text">// Tocá Sir Fausto, Marca 2 u Otros</div>
+      </div>`;
+  } else {
+    subTabs.classList.remove('active');
+    banner.classList.remove('active');
+    renderProducts(cat);
+  }
+}
+
+function filterBrand(brand, btn) {
+  activeBrand = brand;
+  
+  // Marcar sub-tab activa
+  document.querySelectorAll('.sub-tab').forEach(t => t.classList.remove('active'));
+  btn.classList.add('active');
+  
+  // Mostrar banner de la marca
+  const banner = document.getElementById('brandBanner');
+  banner.classList.add('active');
+  
+  if (brand === 'sirfausto') {
+    banner.innerHTML = `<div class="brand-banner-placeholder">SIR FAUSTO</div>`;
+    // Cuando tengas la imagen real, cambiás esto por:
+    // banner.innerHTML = `<img src="img/brands/sirfausto-banner.jpg" alt="Sir Fausto">`;
+  } else if (brand === 'marca2') {
+    banner.innerHTML = `<div class="brand-banner-placeholder">MARCA 2</div>`;
+  } else {
+    banner.innerHTML = `<div class="brand-banner-placeholder">OTROS PRODUCTOS</div>`;
+  }
+  
+  // Filtrar productos por marca
+  const filtered = PRODUCTS.filter(p => p.cat === 'barber' && p.brand === brand);
+  
+  if (filtered.length === 0) {
+    document.getElementById('productsGrid').innerHTML = `
+      <div class="empty-state">
+        <div class="empty-state-title">Próximamente</div>
+        <div class="empty-state-text">// Productos en camino</div>
+      </div>`;
+    return;
+  }
+  
+  renderProductsList(filtered);
+}
+
+function renderProductsList(products) {
+  const grid = document.getElementById('productsGrid');
+  grid.innerHTML = products.map(p => {
+    const inCart  = cart.find(i => i.id === p.id);
+    const tagHTML = p.tag
+      ? `<div class="product-tag tag-${p.tag}">${p.tag === 'new' ? 'Nuevo' : 'Hot'}</div>`
+      : '';
+    const mediaHTML = p.img
+      ? `<img class="product-img" src="${p.img}" alt="${p.name}">`
+      : `<div class="product-placeholder">${p.emoji}</div>`;
+    const buttonHTML = inCart
+      ? `
+        <div class="card-qty-controls">
+          <button class="qty-btn" onclick="event.stopPropagation(); decreaseQty(${p.id})">−</button>
+          <span class="qty-num">${inCart.qty}</span>
+          <button class="qty-btn" onclick="event.stopPropagation(); increaseQty(${p.id})">+</button>
+        </div>`
+      : `<button class="add-btn" onclick="addToCart(${p.id})">+ Agregar</button>`;
+    
+    return `
+      <div class="product-card" data-id="${p.id}">
+        <div class="product-img-wrap">
+          ${mediaHTML}
+          ${tagHTML}
+          <div class="card-overlay">${buttonHTML}</div>
+        </div>
+        <div class="product-info">
+          <div class="product-cat">${p.cat}</div>
+          <div class="product-name">${p.name}</div>
+          <div class="product-price">$${p.price.toLocaleString('es-AR')}</div>
+        </div>
+      </div>
+    `;
+  }).join('');
 }
 
 
@@ -294,7 +385,12 @@ document.querySelectorAll('button, a, .product-card').forEach(el => {
 
 /* ── 9. INIT ──────────────────────────────── */
 
-renderProducts();
+// Al cargar, mostrar mensaje "Elegí categoría"
+document.getElementById('productsGrid').innerHTML = `
+  <div class="empty-state">
+    <div class="empty-state-title">Elegí una categoría</div>
+    <div class="empty-state-text">// Tocá Barber, Fragancia o Accesorios</div>
+  </div>`;
 
 const BARBEROS = {
   luca:    { name: "Luca",    wpp: "5491156431982" },
