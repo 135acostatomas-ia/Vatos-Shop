@@ -41,10 +41,10 @@ const PRODUCTS = [
   { id: 8, name: "Óleo Esencial Barba 30ml",        cat: "barber", brand: "sirfausto", price: 0, emoji: "🌿", tag: null },
 
   // FRAGANCIAS
-  { id: 20, name: "Lattafa Khamrah",                 cat: "fragancia", price: 18000, emoji: "🧴", tag: null },
-  { id: 21, name: "Lattafa Asad",                    cat: "fragancia", price: 19000, emoji: "🧴", tag: null },
-  { id: 22, name: "Afnan 9PM Negro",                 cat: "fragancia", price: 19000, emoji: "🧴", tag: null },
-  { id: 23, name: "Armaf Club de Nuit Intense Man",  cat: "fragancia", price: 22000, emoji: "🧴", tag: null },
+{ id: 20, name: "Lattafa Khamrah",                 cat: "fragancia", price: 18000, img: "img/productos/fragancias/LattafaKhamrah.png",       tag: null },
+{ id: 21, name: "Lattafa Asad",                    cat: "fragancia", price: 19000, img: "img/productos/fragancias/LattafaAsad.png",          tag: null },
+{ id: 22, name: "Afnan 9PM Negro",                 cat: "fragancia", price: 19000, img: "img/productos/fragancias/Afnan9PMNegro.png",        tag: null },
+{ id: 23, name: "Armaf Club de Nuit Intense Man",  cat: "fragancia", price: 22000, img: "img/productos/fragancias/ArmafClubdeNuitIntenseMan.png", tag: null },
 ];
 
 /* ── 3. CARRITO ───────────────────────────── */
