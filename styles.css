@@ -1234,16 +1234,12 @@ footer {
   display: none;
   margin-top: 2rem;
   width: 100%;
-  aspect-ratio: 21/6;
-  background: var(--gris);
+  background: var(--negro);
   border: 1px solid var(--gris-borde);
-  align-items: center;
-  justify-content: center;
-  position: relative;
   overflow: hidden;
 }
 .brand-banner.active {
-  display: flex;
+  display: block;
 }
 
 .brand-banner img {
@@ -1292,7 +1288,7 @@ footer {
   .brand-banner {
     aspect-ratio: 16/9;
   }
-
+}
   
 /* ── 20. BANNER SIR FAUSTO ─────────────────── */
 
@@ -1404,25 +1400,170 @@ footer {
 }
 
 @media (max-width: 768px) {
+  .sub-tabs { flex-wrap: wrap; }
+}
+
+/* ── 20. BANNER SIR FAUSTO ─────────────────── */
+.sf-banner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+  height: 100%;
+  font-family: Georgia, 'Times New Roman', serif;
+}
+
+.sf-banner-left {
+  background: #D9D4C5;
+  padding: 2rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+}
+
+.sf-banner-left::before {
+  content: '';
+  position: absolute;
+  left: 1.5rem; top: 2rem;
+  width: 1px; height: 50px;
+  background: #2C2C2A;
+}
+
+.sf-linea {
+  font-family: Georgia, serif;
+  font-size: 0.85rem;
+  font-weight: 300;
+  letter-spacing: 0.4em;
+  color: #2C2C2A;
+  margin-bottom: 1.2rem;
+}
+
+.sf-logo-box {
+  background: #1A1A1A;
+  padding: 1rem 2rem;
+  display: inline-block;
+  width: fit-content;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.sf-logo-name {
+  font-family: Georgia, serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: #8B7B3F;
+}
+
+.sf-logo-since {
+  font-family: Georgia, serif;
+  font-size: 0.6rem;
+  font-weight: 300;
+  letter-spacing: 0.25em;
+  color: #8B7B3F;
+  font-style: italic;
+  margin-top: 0.2rem;
+}
+
+.sf-divider {
+  width: 80%; height: 1px;
+  background: #3A2E26;
+  margin-bottom: 1.2rem;
+}
+
+.sf-tagline {
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.25em;
+  color: #5F5E5A;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.sf-subtag {
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.3em;
+  color: #8B7B3F;
+}
+
+.sf-banner-right {
+  width: 100%; height: 100%;
+  overflow: hidden;
+}
+
+.sf-banner-right img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+@media (max-width: 768px) {
   .sf-banner {
     grid-template-columns: 1fr;
     grid-template-rows: auto auto;
   }
-  .sf-banner-left {
-    padding: 1.5rem;
+  .sf-banner-left { padding: 1.5rem; }
+  .sf-linea { font-size: 0.7rem; margin-bottom: 0.8rem; }
+  .sf-logo-name { font-size: 1.1rem; }
+  .sf-tagline { font-size: 0.6rem; }
+}
+
+/* ── 21. CARRUSEL BANNER ──────────────────── */
+.carousel {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  touch-action: pan-y;
+}
+
+.carousel-track {
+  display: flex;
+  flex-wrap: nowrap;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.carousel-track picture {
+  min-width: 100%;
+  flex-shrink: 0;
+}
+
+.carousel-track picture img {
+  width: 100%;
+  height: 500px;
+  object-fit: contain;
+  display: block;
+  background: var(--negro);
+}
+
+@media (max-width: 768px) {
+  .carousel-track picture img {
+    height: auto;
+    object-fit: contain;
   }
-  .sf-linea {
-    font-size: 0.7rem;
-    margin-bottom: 0.8rem;
-  }
-  .sf-logo-name {
-    font-size: 1.1rem;
-  }
-  .sf-tagline {
-    font-size: 0.6rem;
-  }
-  .brand-banner {
-    aspect-ratio: auto;
-    min-height: 0;
-  }
+}
+
+.carousel-dots {
+  position: absolute;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.5rem;
+  z-index: 10;
+}
+
+.dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.4);
+  cursor: pointer;
+  transition: all 0.3s;
+  border: none;
+}
+
+.dot.active {
+  background: var(--verde-fluor);
+  transform: scale(1.3);
 }

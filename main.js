@@ -212,29 +212,49 @@ let activeBrand = null;
 function filterProducts(cat, btn) {
   activeFilter = cat;
   activeBrand = null;
-  
-  // Marcar tab activa
+
   document.querySelectorAll('.cat-tab').forEach(t => t.classList.remove('active'));
   btn.classList.add('active');
-  
-  // Mostrar/ocultar sub-tabs de Barber
+
   const subTabs = document.getElementById('subTabsBarber');
   const banner = document.getElementById('brandBanner');
-  
+
   if (cat === 'barber') {
     subTabs.classList.add('active');
-    // Limpiar selección anterior de sub-tabs
     document.querySelectorAll('.sub-tab').forEach(t => t.classList.remove('active'));
     banner.classList.remove('active');
-    // Mostrar mensaje "Elegí una marca"
+    stopCarousel();
     document.getElementById('productsGrid').innerHTML = `
       <div class="empty-state">
         <div class="empty-state-title">Elegí una marca</div>
         <div class="empty-state-text">// Tocá Sir Fausto, Marca 2 u Otros</div>
       </div>`;
+  } else if (cat === 'fragancia') {
+    subTabs.classList.remove('active');
+    banner.classList.add('active');
+    banner.innerHTML = `
+      <div class="carousel">
+        <div class="carousel-track" id="carouselTrack">
+          <picture>
+            <source media="(max-width: 768px)" srcset="img/brand/banners/banner1app.png">
+            <img src="img/brand/banners/banner1web.png" alt="Vato Essence">
+          </picture>
+          <picture>
+            <source media="(max-width: 768px)" srcset="img/brand/banners/banner2app.png">
+            <img src="img/brand/banners/banner2web.png" alt="Atomizadores 8ml">
+          </picture>
+        </div>
+        <div class="carousel-dots" id="carouselDots">
+          <span class="dot active" onclick="goToSlide(0)"></span>
+          <span class="dot" onclick="goToSlide(1)"></span>
+        </div>
+      </div>`;
+    setTimeout(() => startCarousel(), 50);
+    renderProducts(cat);
   } else {
     subTabs.classList.remove('active');
     banner.classList.remove('active');
+    stopCarousel();
     renderProducts(cat);
   }
 }
@@ -429,4 +449,38 @@ function bookBarber(barberoId) {
   const url = `https://wa.me/${b.wpp}?text=${encodeURIComponent(msg)}`;
   window.open(url, '_blank');
   closeBarberModal();
+}
+
+/* ── CARRUSEL ─────────────────────────── */
+let carouselIndex = 0;
+let carouselInterval = null;
+
+function startCarousel() {
+  stopCarousel();
+  carouselIndex = 0;
+  updateCarousel();
+  carouselInterval = setInterval(() => {
+    carouselIndex = (carouselIndex + 1) % 2;
+    updateCarousel();
+  }, 4000);
+}
+
+function stopCarousel() {
+  if (carouselInterval) {
+    clearInterval(carouselInterval);
+    carouselInterval = null;
+  }
+}
+
+function goToSlide(index) {
+  carouselIndex = index;
+  updateCarousel();
+}
+
+function updateCarousel() {
+  const track = document.getElementById('carouselTrack');
+  const dots = document.querySelectorAll('.dot');
+  if (!track) return;
+  track.style.transform = `translateX(-${carouselIndex * 100}%)`;
+  dots.forEach((d, i) => d.classList.toggle('active', i === carouselIndex));
 }
