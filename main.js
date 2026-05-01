@@ -30,20 +30,21 @@ const WPP_NUMBER = "5491164562757";
 // "img": "img/productos/nombre-archivo.jpg"
 
 const PRODUCTS = [
-  // SIR FAUSTO
-  { id: 1, name: "Pomada Mate Premium",   cat: "barber", brand: "sirfausto", price: 3500,  emoji: "🧴", tag: "new" },
-  { id: 2, name: "Cera Modeladora Gold",  cat: "barber", brand: "sirfausto", price: 4200,  emoji: "✨", tag: null  },
-  { id: 3, name: "Shampoo Anticaída",     cat: "barber", brand: "sirfausto", price: 2800,  emoji: "💧", tag: null  },
-  { id: 4, name: "Aceite de Barba",       cat: "barber", brand: "sirfausto", price: 3200,  emoji: "🧔", tag: "hot" },
-  { id: 5, name: "Balm Hidratante",       cat: "barber", brand: "sirfausto", price: 2900,  emoji: "🌿", tag: null  },
+  // BARBER — SIR FAUSTO (en stock)
+  { id: 1, name: "Shampoo para Barba 100ml",        cat: "barber", brand: "sirfausto", price: 0, emoji: "🧴", tag: null },
+  { id: 2, name: "Shampoo para Cabello 100ml",      cat: "barber", brand: "sirfausto", price: 0, emoji: "🧴", tag: null },
+  { id: 3, name: "Old Wax Suave 50ml",              cat: "barber", brand: "sirfausto", price: 0, emoji: "🪮", tag: null },
+  { id: 4, name: "Old Wax Fuerte 50ml",             cat: "barber", brand: "sirfausto", price: 0, emoji: "🪮", tag: null },
+  { id: 5, name: "Forming Paste 50ml",              cat: "barber", brand: "sirfausto", price: 0, emoji: "✨", tag: null },
+  { id: 6, name: "Pomada Brillante 50ml",           cat: "barber", brand: "sirfausto", price: 0, emoji: "💫", tag: null },
+  { id: 7, name: "Pomada Opaca 50ml",               cat: "barber", brand: "sirfausto", price: 0, emoji: "🌑", tag: null },
+  { id: 8, name: "Óleo Esencial Barba 30ml",        cat: "barber", brand: "sirfausto", price: 0, emoji: "🌿", tag: null },
 
-  // FRAGANCIA
-  { id: 7, name: "Campeón Varsity",       cat: "fragancia",  price: 18500, emoji: "🧥", tag: "new" },
-  { id: 8, name: "Gorra Snapback VC",     cat: "fragancia",  price: 6500,  emoji: "🧢", tag: "hot" },
-
-  // ACCESORIOS
-  { id: 10, name: "Parlante Bluetooth",   cat: "accesorios", price: 22000, emoji: "🔊", tag: "hot" },
-  { id: 11, name: "Auriculares TWS",      cat: "accesorios", price: 15000, emoji: "🎧", tag: null  },
+  // FRAGANCIAS
+  { id: 20, name: "Lattafa Khamrah",                 cat: "fragancia", price: 18000, emoji: "🧴", tag: null },
+  { id: 21, name: "Lattafa Asad",                    cat: "fragancia", price: 19000, emoji: "🧴", tag: null },
+  { id: 22, name: "Afnan 9PM Negro",                 cat: "fragancia", price: 19000, emoji: "🧴", tag: null },
+  { id: 23, name: "Armaf Club de Nuit Intense Man",  cat: "fragancia", price: 22000, emoji: "🧴", tag: null },
 ];
 
 /* ── 3. CARRITO ───────────────────────────── */
@@ -250,14 +251,28 @@ function filterBrand(brand, btn) {
   banner.classList.add('active');
   
   if (brand === 'sirfausto') {
-    banner.innerHTML = `<div class="brand-banner-placeholder">SIR FAUSTO</div>`;
-    // Cuando tengas la imagen real, cambiás esto por:
-    // banner.innerHTML = `<img src="img/brands/sirfausto-banner.jpg" alt="Sir Fausto">`;
-  } else if (brand === 'marca2') {
-    banner.innerHTML = `<div class="brand-banner-placeholder">MARCA 2</div>`;
-  } else {
-    banner.innerHTML = `<div class="brand-banner-placeholder">OTROS PRODUCTOS</div>`;
-  }
+  banner.innerHTML = `
+    <div class="sf-banner">
+      <div class="sf-banner-left">
+        <div class="sf-linea">LÍNEA</div>
+        <div class="sf-logo-box">
+          <div class="sf-logo-name">SIR FAUSTO</div>
+          <div class="sf-logo-since">Since 1888</div>
+        </div>
+        <div class="sf-divider"></div>
+        <div class="sf-tagline">LA NUEVA ERA<br>EN EL CUIDADO MASCULINO</div>
+        <div class="sf-subtag">REFINAMIENTO Y NATURALIDAD</div>
+      </div>
+      <div class="sf-banner-right">
+        <img src="img/brand/sirfaustobanner.png" alt="Sir Fausto">
+      </div>
+    </div>
+  `;
+} else if (brand === 'marca2') {
+  banner.innerHTML = `<div class="brand-banner-placeholder">MARCA 2</div>`;
+} else {
+  banner.innerHTML = `<div class="brand-banner-placeholder">OTROS PRODUCTOS</div>`;
+}
   
   // Filtrar productos por marca
   const filtered = PRODUCTS.filter(p => p.cat === 'barber' && p.brand === brand);

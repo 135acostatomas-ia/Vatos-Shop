@@ -42,7 +42,7 @@ html { scroll-behavior: smooth; }
 body {
   background: var(--negro);
   color: var(--texto);
-  font-family: 'Barlow Condensed', sans-serif;
+  font-family: 'Inter', sans-serif;
   overflow-x: hidden;
   cursor: none;
 }
@@ -1291,5 +1291,138 @@ footer {
   }
   .brand-banner {
     aspect-ratio: 16/9;
+  }
+
+  
+/* ── 20. BANNER SIR FAUSTO ─────────────────── */
+
+.sf-banner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+  height: 100%;
+  font-family: Georgia, 'Times New Roman', serif;
+}
+
+.sf-banner-left {
+  background: #D9D4C5;
+  padding: 2rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+}
+
+.sf-banner-left::before {
+  content: '';
+  position: absolute;
+  left: 1.5rem;
+  top: 2rem;
+  width: 1px;
+  height: 50px;
+  background: #2C2C2A;
+}
+
+.sf-linea {
+  font-family: Georgia, serif;
+  font-size: 0.85rem;
+  font-weight: 300;
+  letter-spacing: 0.4em;
+  color: #2C2C2A;
+  margin-bottom: 1.2rem;
+}
+
+.sf-logo-box {
+  background: #1A1A1A;
+  padding: 1rem 2rem;
+  display: inline-block;
+  width: fit-content;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.sf-logo-name {
+  font-family: Georgia, serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: #8B7B3F;
+}
+
+.sf-logo-since {
+  font-family: Georgia, serif;
+  font-size: 0.6rem;
+  font-weight: 300;
+  letter-spacing: 0.25em;
+  color: #8B7B3F;
+  font-style: italic;
+  margin-top: 0.2rem;
+}
+
+.sf-divider {
+  width: 80%;
+  height: 1px;
+  background: #3A2E26;
+  margin-bottom: 1.2rem;
+}
+
+.sf-tagline {
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 0.7rem;
+  font-weight: 400;
+  letter-spacing: 0.25em;
+  color: #5F5E5A;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.sf-subtag {
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 0.65rem;
+  font-weight: 400;
+  letter-spacing: 0.3em;
+  color: #8B7B3F;
+}
+
+.sf-banner-right {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.sf-banner-right img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.brand-banner {
+  aspect-ratio: auto;
+  min-height: 280px;
+}
+
+@media (max-width: 768px) {
+  .sf-banner {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+  }
+  .sf-banner-left {
+    padding: 1.5rem;
+  }
+  .sf-linea {
+    font-size: 0.7rem;
+    margin-bottom: 0.8rem;
+  }
+  .sf-logo-name {
+    font-size: 1.1rem;
+  }
+  .sf-tagline {
+    font-size: 0.6rem;
+  }
+  .brand-banner {
+    aspect-ratio: auto;
+    min-height: 0;
   }
 }
