@@ -462,7 +462,7 @@ function startCarousel() {
   carouselInterval = setInterval(() => {
     carouselIndex = (carouselIndex + 1) % 2;
     updateCarousel();
-  }, 4000);
+  }, 8000);
 }
 
 function stopCarousel() {
@@ -484,3 +484,28 @@ function updateCarousel() {
   track.style.transform = `translateX(-${carouselIndex * 100}%)`;
   dots.forEach((d, i) => d.classList.toggle('active', i === carouselIndex));
 }
+
+/* ── TOUCH SWIPE CARRUSEL ─────────────────── */
+let touchStartX = 0;
+let touchEndX = 0;
+
+document.addEventListener('touchstart', e => {
+  const track = document.getElementById('carouselTrack');
+  if (!track) return;
+  touchStartX = e.changedTouches[0].screenX;
+});
+
+document.addEventListener('touchend', e => {
+  const track = document.getElementById('carouselTrack');
+  if (!track) return;
+  touchEndX = e.changedTouches[0].screenX;
+  const diff = touchStartX - touchEndX;
+  if (Math.abs(diff) > 50) {
+    if (diff > 0) {
+      carouselIndex = Math.min(carouselIndex + 1, 1);
+    } else {
+      carouselIndex = Math.max(carouselIndex - 1, 0);
+    }
+    updateCarousel();
+  }
+});
