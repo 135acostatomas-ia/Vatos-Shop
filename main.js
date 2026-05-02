@@ -31,14 +31,16 @@ const WPP_NUMBER = "5491164562757";
 
 const PRODUCTS = [
   // BARBER — SIR FAUSTO (en stock)
-  { id: 1, name: "Shampoo para Barba 100ml",        cat: "barber", brand: "sirfausto", price: 0, emoji: "🧴", tag: null },
-  { id: 2, name: "Shampoo para Cabello 100ml",      cat: "barber", brand: "sirfausto", price: 0, emoji: "🧴", tag: null },
-  { id: 3, name: "Old Wax Suave 50ml",              cat: "barber", brand: "sirfausto", price: 0, emoji: "🪮", tag: null },
-  { id: 4, name: "Old Wax Fuerte 50ml",             cat: "barber", brand: "sirfausto", price: 0, emoji: "🪮", tag: null },
-  { id: 5, name: "Forming Paste 50ml",              cat: "barber", brand: "sirfausto", price: 0, emoji: "✨", tag: null },
-  { id: 6, name: "Pomada Brillante 50ml",           cat: "barber", brand: "sirfausto", price: 0, emoji: "💫", tag: null },
-  { id: 7, name: "Pomada Opaca 50ml",               cat: "barber", brand: "sirfausto", price: 0, emoji: "🌑", tag: null },
-  { id: 8, name: "Óleo Esencial Barba 30ml",        cat: "barber", brand: "sirfausto", price: 0, emoji: "🌿", tag: null },
+{ id: 1,  name: "Shampoo para Barba 100ml",   cat: "barber", brand: "sirfausto", price: 0, img: "img/productos/Fragancias/sirfausto/shampoobarba.png",     tag: null },
+{ id: 2,  name: "Shampoo para Cabello 100ml", cat: "barber", brand: "sirfausto", price: 0, img: "img/productos/Fragancias/sirfausto/shampocabello.png",    tag: null },
+{ id: 3,  name: "Old Wax Suave 50ml",         cat: "barber", brand: "sirfausto", price: 0, img: "img/productos/Fragancias/sirfausto/oldwaxsuave.png",      tag: null },
+{ id: 4,  name: "Old Wax Fuerte 50ml",        cat: "barber", brand: "sirfausto", price: 0, img: "img/productos/Fragancias/sirfausto/oldwaxfuerte.png",     tag: null },
+{ id: 5,  name: "Forming Paste 50ml",         cat: "barber", brand: "sirfausto", price: 0, img: "img/productos/Fragancias/sirfausto/formingpaste.png",     tag: null },
+{ id: 6,  name: "Pomada Brillante 50ml",      cat: "barber", brand: "sirfausto", price: 0, img: "img/productos/Fragancias/sirfausto/pomadabrillante.png",  tag: null },
+{ id: 7,  name: "Pomada Opaca 50ml",          cat: "barber", brand: "sirfausto", price: 0, img: "img/productos/Fragancias/sirfausto/pomadaopaca.png",      tag: null },
+{ id: 8,  name: "Óleo Esencial Barba 30ml",   cat: "barber", brand: "sirfausto", price: 0, img: "img/productos/Fragancias/sirfausto/oleoesencialbarba.png", tag: null },
+{ id: 9,  name: "Hybrid Clay Pure 50ml",      cat: "barber", brand: "sirfausto", price: 0, img: "img/productos/Fragancias/sirfausto/hybridclay.png",       tag: null },
+{ id: 10, name: "Facial Mask Pure 50ml",      cat: "barber", brand: "sirfausto", price: 0, img: "img/productos/Fragancias/sirfausto/facialmask.png",       tag: null },
 
   // FRAGANCIAS
 { id: 20, name: "Lattafa Khamrah",                 cat: "fragancia", price: 18000, img: "img/productos/Fragancias/LattafaKhamrah.png",       tag: null },
@@ -168,8 +170,8 @@ function renderProducts(filter = 'all') {
       : '';
 
     const mediaHTML = p.img
-      ? `<img class="product-img" src="${p.img}" alt="${p.name}">`
-      : `<div class="product-placeholder">${p.emoji}</div>`;
+   ? `<img class="product-img" src="${p.img}" alt="${p.name}">`
+   : `<div class="product-placeholder">${p.emoji}</div>`;
 
     const buttonHTML = inCart
       ? `
@@ -186,7 +188,7 @@ function renderProducts(filter = 'all') {
       `;
 
     return `
-      <div class="product-card" data-id="${p.id}">
+    <div class="product-card" data-id="${p.id}" ${p.img ? `onclick="openLightbox('${p.img}', '${p.name}')"` : ''}>
         <div class="product-img-wrap">
           ${mediaHTML}
           ${tagHTML}
@@ -317,8 +319,8 @@ function renderProductsList(products) {
       ? `<div class="product-tag tag-${p.tag}">${p.tag === 'new' ? 'Nuevo' : 'Hot'}</div>`
       : '';
     const mediaHTML = p.img
-      ? `<img class="product-img" src="${p.img}" alt="${p.name}">`
-      : `<div class="product-placeholder">${p.emoji}</div>`;
+  ? `<img class="product-img" src="${p.img}" alt="${p.name}">`
+  : `<div class="product-placeholder">${p.emoji}</div>`;
     const buttonHTML = inCart
       ? `
         <div class="card-qty-controls">
@@ -329,7 +331,7 @@ function renderProductsList(products) {
       : `<button class="add-btn" onclick="addToCart(${p.id})">+ Agregar</button>`;
     
     return `
-      <div class="product-card" data-id="${p.id}">
+     <div class="product-card" data-id="${p.id}" ${p.img ? `onclick="openLightbox('${p.img}', '${p.name}')"` : ''}>
         <div class="product-img-wrap">
           ${mediaHTML}
           ${tagHTML}
@@ -462,7 +464,7 @@ function startCarousel() {
   carouselInterval = setInterval(() => {
     carouselIndex = (carouselIndex + 1) % 2;
     updateCarousel();
-  }, 8000);
+  }, 6000);
 }
 
 function stopCarousel() {
@@ -509,3 +511,24 @@ document.addEventListener('touchend', e => {
     updateCarousel();
   }
 });
+
+/* ── LIGHTBOX ─────────────────────────── */
+function openLightbox(src, alt) {
+  const lb = document.createElement('div');
+  lb.className = 'lightbox';
+  lb.innerHTML = `
+    <div class="lightbox-overlay" onclick="closeLightbox()"></div>
+    <div class="lightbox-content">
+      <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+      <img src="${src}" alt="${alt}">
+    </div>`;
+  document.body.appendChild(lb);
+  setTimeout(() => lb.classList.add('active'), 10);
+}
+
+function closeLightbox() {
+  const lb = document.querySelector('.lightbox');
+  if (!lb) return;
+  lb.classList.remove('active');
+  setTimeout(() => lb.remove(), 300);
+}
