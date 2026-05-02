@@ -851,7 +851,7 @@ footer {
   .cursor, .cursor-ring { display: none; }
  
   /* Navbar */
-  nav { padding: 0 1rem; }
+  nav:not(.bottom-nav) { padding: 0 1rem; }
   .logo { font-size: 1.5rem; }
   .nav-links { display: none; }
   .cart-btn { padding: 0.5rem 0.9rem; font-size: 0.7rem; }
@@ -891,21 +891,10 @@ footer {
     text-align: center;
     padding: 1.5rem 1rem;
   }
-}
- 
-/* Mobile chico */
-@media (max-width: 380px) {
-  .products-grid { grid-template-columns: 1fr 1fr; }
-  .cat-tab { font-size: 0.5rem; padding: 0.65rem 0.2rem; }
-  h1 { font-size: clamp(3.5rem, 22vw, 5rem); }
-}
- 
-/* Mejor experiencia táctil */
-@media (max-width: 768px) {
-  button, a {
-    -webkit-tap-highlight-color: transparent;
-    touch-action: manipulation;
-  }
+
+  /* Bottom nav */
+  .bottom-nav { display: flex !important; }
+  body { padding-bottom: 70px; }
 }
 
 /* ── 15. BOTTOM NAV (MOBILE) ──────────────── */
@@ -964,12 +953,6 @@ footer {
   justify-content: center;
   font-size: 0.55rem;
   font-weight: 700;
-}
-
-/* En MOBILE → mostrar bottom-nav y ajustar */
-@media (max-width: 768px) {
-  .bottom-nav { display: flex; }
-  body { padding-bottom: 70px; }   /* espacio para que no tape contenido */
 }
 
 /* ── 16. CONTROLES DE CANTIDAD ────────────── */
@@ -1630,4 +1613,17 @@ footer {
 .lightbox-close:hover {
   border-color: var(--verde-fluor);
   color: var(--verde-fluor);
+}
+
+/* Ocultar navbar superior en mobile — usar solo bottom-nav */
+@media (max-width: 768px) {
+  nav:not(.bottom-nav) {
+    display: none !important;
+  }
+  .bottom-nav {
+    display: flex !important;
+  }
+  body {
+    padding-bottom: 70px;
+  }
 }
