@@ -1181,8 +1181,6 @@ footer {
 }
 
 /* ── 19. CATÁLOGO MARCAS ─────────────────────── */
-
-/* Sub-tabs (Sir Fausto, Marca 2, Otros) */
 .sub-tabs {
   display: none;
   gap: 0;
@@ -1190,9 +1188,7 @@ footer {
   width: fit-content;
   margin-top: 1rem;
 }
-.sub-tabs.active {
-  display: flex;
-}
+.sub-tabs.active { display: flex; }
 
 .sub-tab {
   padding: 0.6rem 1.4rem;
@@ -1212,23 +1208,16 @@ footer {
 .sub-tab:hover { color: var(--violeta); background: rgba(124,58,237,0.05); }
 .sub-tab.active { background: var(--violeta); color: #fff; }
 
-/* Banner de marca */
 .brand-banner {
   display: none;
   margin-top: 2rem;
   width: 100%;
   background: var(--negro);
-  border: 1px solid var(--gris-borde);
+  border: none;
   overflow: hidden;
+  max-height: none;
 }
 .brand-banner.active {
-  display: block;
-}
-
-.brand-banner img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
   display: block;
 }
 
@@ -1240,14 +1229,12 @@ footer {
   text-shadow: 0 0 30px rgba(170,255,0,0.4);
 }
 
-/* Estado vacío del catálogo */
 .empty-state {
   grid-column: 1 / -1;
   padding: 5rem 2rem;
   text-align: center;
   border: 1px dashed var(--gris-borde);
 }
-
 .empty-state-title {
   font-family: 'Bebas Neue', sans-serif;
   font-size: 2rem;
@@ -1255,242 +1242,12 @@ footer {
   color: var(--verde-fluor);
   margin-bottom: 0.5rem;
 }
-
 .empty-state-text {
   font-family: 'Space Mono', monospace;
   font-size: 0.75rem;
   letter-spacing: 0.15em;
   color: var(--texto-muted);
   text-transform: uppercase;
-}
-
-@media (max-width: 768px) {
-  .sub-tabs {
-    flex-wrap: wrap;
-  }
-  .brand-banner {
-    aspect-ratio: 16/9;
-  }
-}
-  
-/* ── 20. BANNER SIR FAUSTO ─────────────────── */
-
-.sf-banner {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  width: 100%;
-  height: 100%;
-  font-family: Georgia, 'Times New Roman', serif;
-}
-
-.sf-banner-left {
-  background: #D9D4C5;
-  padding: 2rem 2.5rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  position: relative;
-}
-
-.sf-banner-left::before {
-  content: '';
-  position: absolute;
-  left: 1.5rem;
-  top: 2rem;
-  width: 1px;
-  height: 50px;
-  background: #2C2C2A;
-}
-
-.sf-linea {
-  font-family: Georgia, serif;
-  font-size: 0.85rem;
-  font-weight: 300;
-  letter-spacing: 0.4em;
-  color: #2C2C2A;
-  margin-bottom: 1.2rem;
-}
-
-.sf-logo-box {
-  background: #1A1A1A;
-  padding: 1rem 2rem;
-  display: inline-block;
-  width: fit-content;
-  text-align: center;
-  margin-bottom: 1.5rem;
-}
-
-.sf-logo-name {
-  font-family: Georgia, serif;
-  font-size: 1.4rem;
-  font-weight: 700;
-  letter-spacing: 0.2em;
-  color: #8B7B3F;
-}
-
-.sf-logo-since {
-  font-family: Georgia, serif;
-  font-size: 0.6rem;
-  font-weight: 300;
-  letter-spacing: 0.25em;
-  color: #8B7B3F;
-  font-style: italic;
-  margin-top: 0.2rem;
-}
-
-.sf-divider {
-  width: 80%;
-  height: 1px;
-  background: #3A2E26;
-  margin-bottom: 1.2rem;
-}
-
-.sf-tagline {
-  font-family: Helvetica, Arial, sans-serif;
-  font-size: 0.7rem;
-  font-weight: 400;
-  letter-spacing: 0.25em;
-  color: #5F5E5A;
-  line-height: 1.6;
-  margin-bottom: 1.5rem;
-}
-
-.sf-subtag {
-  font-family: Helvetica, Arial, sans-serif;
-  font-size: 0.65rem;
-  font-weight: 400;
-  letter-spacing: 0.3em;
-  color: #8B7B3F;
-}
-
-.sf-banner-right {
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-}
-
-.sf-banner-right img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  display: block;
-}
-
-.brand-banner {
-  aspect-ratio: auto;
-  min-height: 280px;
-}
-
-@media (max-width: 768px) {
-  .sub-tabs { flex-wrap: wrap; }
-}
-
-/* ── 20. BANNER SIR FAUSTO ─────────────────── */
-.sf-banner {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  width: 100%;
-  height: 100%;
-  font-family: Georgia, 'Times New Roman', serif;
-}
-
-.sf-banner-left {
-  background: #D9D4C5;
-  padding: 2rem 2.5rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  position: relative;
-}
-
-.sf-banner-left::before {
-  content: '';
-  position: absolute;
-  left: 1.5rem; top: 2rem;
-  width: 1px; height: 50px;
-  background: #2C2C2A;
-}
-
-.sf-linea {
-  font-family: Georgia, serif;
-  font-size: 0.85rem;
-  font-weight: 300;
-  letter-spacing: 0.4em;
-  color: #2C2C2A;
-  margin-bottom: 1.2rem;
-}
-
-.sf-logo-box {
-  background: #1A1A1A;
-  padding: 1rem 2rem;
-  display: inline-block;
-  width: fit-content;
-  text-align: center;
-  margin-bottom: 1.5rem;
-}
-
-.sf-logo-name {
-  font-family: Georgia, serif;
-  font-size: 1.4rem;
-  font-weight: 700;
-  letter-spacing: 0.2em;
-  color: #8B7B3F;
-}
-
-.sf-logo-since {
-  font-family: Georgia, serif;
-  font-size: 0.6rem;
-  font-weight: 300;
-  letter-spacing: 0.25em;
-  color: #8B7B3F;
-  font-style: italic;
-  margin-top: 0.2rem;
-}
-
-.sf-divider {
-  width: 80%; height: 1px;
-  background: #3A2E26;
-  margin-bottom: 1.2rem;
-}
-
-.sf-tagline {
-  font-family: Helvetica, Arial, sans-serif;
-  font-size: 0.7rem;
-  letter-spacing: 0.25em;
-  color: #5F5E5A;
-  line-height: 1.6;
-  margin-bottom: 1.5rem;
-}
-
-.sf-subtag {
-  font-family: Helvetica, Arial, sans-serif;
-  font-size: 0.65rem;
-  letter-spacing: 0.3em;
-  color: #8B7B3F;
-}
-
-.sf-banner-right {
-  width: 100%; height: 100%;
-  overflow: hidden;
-}
-
-.sf-banner-right img {
-  width: 100%; height: 100%;
-  object-fit: cover;
-  object-position: center;
-  display: block;
-}
-
-@media (max-width: 768px) {
-  .sf-banner {
-    grid-template-columns: 1fr;
-    grid-template-rows: auto auto;
-  }
-  .sf-banner-left { padding: 1.5rem; }
-  .sf-linea { font-size: 0.7rem; margin-bottom: 0.8rem; }
-  .sf-logo-name { font-size: 1.1rem; }
-  .sf-tagline { font-size: 0.6rem; }
 }
 
 /* ── 21. CARRUSEL BANNER ──────────────────── */
@@ -1513,19 +1270,40 @@ footer {
   flex-shrink: 0;
 }
 
+/* Fragancias — banners 1 y 2 (desktop) */
 .carousel-track picture img {
   width: 100%;
-  height: 500px;
-  object-fit: contain;
+  height: 550px;
+  object-fit: cover;
+  object-position: center;
   display: block;
   background: var(--negro);
 }
 
+/* Sir Fausto web — 1440×500 */
+.sf-carousel .carousel-track picture img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1440 / 500;
+  object-fit: cover;
+  object-position: center;
+}
+
 @media (max-width: 768px) {
+
   .carousel-track picture img {
+    height: 200px;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  /* Sir Fausto app — 916×1717 */
+  .sf-carousel .carousel-track picture img {
+    width: 100%;
     height: auto;
+    aspect-ratio: 916 / 1717;
     object-fit: contain;
-    max-width: 100%;
+    object-position: center;
   }
 
   .carousel-track picture {
@@ -1534,6 +1312,7 @@ footer {
     overflow: hidden;
   }
 }
+
 .carousel-dots {
   position: absolute;
   bottom: 1rem;

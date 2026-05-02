@@ -274,19 +274,12 @@ function filterBrand(brand, btn) {
   
   if (brand === 'sirfausto') {
   banner.innerHTML = `
-    <div class="sf-banner">
-      <div class="sf-banner-left">
-        <div class="sf-linea">LÍNEA</div>
-        <div class="sf-logo-box">
-          <div class="sf-logo-name">SIR FAUSTO</div>
-          <div class="sf-logo-since">Since 1888</div>
-        </div>
-        <div class="sf-divider"></div>
-        <div class="sf-tagline">LA NUEVA ERA<br>EN EL CUIDADO MASCULINO</div>
-        <div class="sf-subtag">REFINAMIENTO Y NATURALIDAD</div>
-      </div>
-      <div class="sf-banner-right">
-        <img src="img/brand/sirfaustobanner.png" alt="Sir Fausto">
+    <div class="carousel sf-carousel">
+      <div class="carousel-track" id="carouselTrack">
+        <picture>
+          <source media="(max-width: 768px)" srcset="img/brand/banners/bannersirfaustoapp.png">
+          <img src="img/brand/banners/bannersirfaustoweb.png" alt="Sir Fausto">
+        </picture>
       </div>
     </div>
   `;
