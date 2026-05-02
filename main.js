@@ -40,8 +40,6 @@ const PRODUCTS = [
 { id: 7,  name: "Pomada Opaca 50ml",          cat: "barber", brand: "sirfausto", price: 0, img: "img/productos/Fragancias/sirfausto/pomadaopaca.png",      tag: null },
 { id: 8,  name: "Óleo Esencial Barba 30ml",   cat: "barber", brand: "sirfausto", price: 0, img: "img/productos/Fragancias/sirfausto/oleoesencialbarba.png", tag: null },
 { id: 9,  name: "Hybrid Clay Pure 50ml",      cat: "barber", brand: "sirfausto", price: 0, img: "img/productos/Fragancias/sirfausto/hybridclay.png",       tag: null },
-{ id: 10, name: "Facial Mask Pure 50ml",      cat: "barber", brand: "sirfausto", price: 0, img: "img/productos/Fragancias/sirfausto/facialmask.png",       tag: null },
-
   // FRAGANCIAS
 { id: 20, name: "Lattafa Khamrah",                 cat: "fragancia", price: 18000, img: "img/productos/Fragancias/LattafaKhamrah.png",       tag: null },
 { id: 21, name: "Lattafa Asad",                    cat: "fragancia", price: 19000, img: "img/productos/Fragancias/LattafaAsad.png",          tag: null },
@@ -206,7 +204,6 @@ function renderProducts(filter = 'all') {
   }).join('');
 }
 
-
 /* ── 5. FILTRO CATEGORÍAS ─────────────────── */
 
 let activeBrand = null;
@@ -226,11 +223,16 @@ function filterProducts(cat, btn) {
     document.querySelectorAll('.sub-tab').forEach(t => t.classList.remove('active'));
     banner.classList.remove('active');
     stopCarousel();
+    const bannerTec = document.getElementById('brandBannerTec');
+    const wppBar = document.getElementById('tecWppBar');
+    if (bannerTec) bannerTec.classList.remove('active');
+    if (wppBar) wppBar.classList.remove('active');
     document.getElementById('productsGrid').innerHTML = `
       <div class="empty-state">
         <div class="empty-state-title">Elegí una marca</div>
         <div class="empty-state-text">// Tocá Sir Fausto, Marca 2 u Otros</div>
       </div>`;
+
   } else if (cat === 'fragancia') {
     subTabs.classList.remove('active');
     banner.classList.add('active');
@@ -251,11 +253,48 @@ function filterProducts(cat, btn) {
           <span class="dot" onclick="goToSlide(1)"></span>
         </div>
       </div>`;
+    const bannerTec = document.getElementById('brandBannerTec');
+    const wppBar = document.getElementById('tecWppBar');
+    if (bannerTec) bannerTec.classList.remove('active');
+    if (wppBar) wppBar.classList.remove('active');
     setTimeout(() => startCarousel(), 50);
     renderProducts(cat);
+
+  } else if (cat === 'tecnologia') {
+    subTabs.classList.remove('active');
+    banner.classList.remove('active');
+    stopCarousel();
+    const bannerTec = document.getElementById('brandBannerTec');
+    const wppBar = document.getElementById('tecWppBar');
+    bannerTec.classList.add('active');
+    bannerTec.innerHTML = `
+  <div class="carousel">
+    <div class="carousel-track" id="carouselTrack">
+      <picture>
+        <source media="(max-width: 768px)" srcset="img/brand/banners/tecbanner1app.png">
+        <img src="img/brand/banners/tecbanner1web.png" alt="Tecnología Vatos — slide 1">
+      </picture>
+      <picture>
+        <source media="(max-width: 768px)" srcset="img/brand/banners/tecbanner2app.png">
+        <img src="img/brand/banners/tecbanner2web.png" alt="Tecnología Vatos — slide 2">
+      </picture>
+    </div>
+    <div class="carousel-dots" id="carouselDots">
+      <span class="dot active" onclick="goToSlide(0)"></span>
+      <span class="dot" onclick="goToSlide(1)"></span>
+    </div>
+  </div>`;
+    setTimeout(() => startCarousel(), 50);
+    if (wppBar) wppBar.classList.add('active');
+    renderProducts(cat);
+
   } else {
     subTabs.classList.remove('active');
     banner.classList.remove('active');
+    const bannerTec = document.getElementById('brandBannerTec');
+    const wppBar = document.getElementById('tecWppBar');
+    if (bannerTec) bannerTec.classList.remove('active');
+    if (wppBar) wppBar.classList.remove('active');
     stopCarousel();
     renderProducts(cat);
   }
@@ -525,3 +564,9 @@ function closeLightbox() {
   lb.classList.remove('active');
   setTimeout(() => lb.remove(), 300);
 }
+
+function consultarTecnologia() {
+  const msg = `Hola! Quiero consultar sobre productos de tecnología 🎧`;
+  const url = `https://wa.me/${WPP_NUMBER}?text=${encodeURIComponent(msg)}`;
+  window.open(url, '_blank');
+  }

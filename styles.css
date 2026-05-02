@@ -1292,8 +1292,8 @@ footer {
 @media (max-width: 768px) {
 
   .carousel-track picture img {
-    height: 200px;
-    object-fit: cover;
+    height: auto;
+    object-fit: contain;
     object-position: center;
   }
 
@@ -1404,5 +1404,81 @@ footer {
   }
   body {
     padding-bottom: 70px;
+  }
+}
+
+/* ── 22. BARRA WPP TECNOLOGÍA ─────────────── */
+.tec-wpp-bar {
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.9rem 1.5rem;
+  background: rgba(170,255,0,0.05);
+  border: 1px solid rgba(170,255,0,0.15);
+  border-top: none;
+  margin-top: 0;
+}
+
+.tec-wpp-bar.active { display: flex; }
+
+.tec-wpp-text {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  color: var(--texto-muted);
+  text-transform: uppercase;
+}
+
+.tec-wpp-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.65rem 1.4rem;
+  background: var(--verde-fluor);
+  color: var(--negro);
+  border: none;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: none;
+  transition: all 0.2s;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.tec-wpp-btn:hover {
+  background: #fff;
+  transform: skewX(-3deg);
+}
+
+@media (max-width: 768px) {
+  .tec-wpp-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 1rem;
+  }
+  .tec-wpp-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* ── 23. BANNER TECNOLOGÍA ────────────────── */
+#brandBannerTec {
+  max-height: none;
+}
+
+#brandBannerTec .carousel-track picture img {
+  height: 940px;
+  object-fit: contain;
+  object-position: center;
+}
+
+@media (max-width: 768px) {
+  #brandBannerTec .carousel-track picture img {
+    height: 600px;
   }
 }
