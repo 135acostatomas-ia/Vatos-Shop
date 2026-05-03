@@ -127,7 +127,7 @@ function updateCartUI() {
 
   itemsEl.innerHTML = cart.map(i => `
     <div class="cart-item">
-      <div class="cart-item-img">${i.emoji}</div>
+      <div class="cart-item-img">${i.img ? `<img src="${i.img}" alt="${i.name}">` : ''}</div>
       <div class="cart-item-info">
         <div class="cart-item-name">${i.name}</div>
         <div class="cart-item-price">$${(i.price * i.qty).toLocaleString('es-AR')}</div>
@@ -180,7 +180,7 @@ function renderProducts(filter = 'all') {
         </div>
       `
       : `
-        <button class="add-btn" onclick="addToCart(${p.id})">
+        <button class="add-btn" onclick="event.stopPropagation(); addToCart(${p.id})">
           + Agregar
         </button>
       `;
@@ -222,10 +222,11 @@ function filterProducts(cat, btn) {
     subTabs.classList.add('active');
     document.querySelectorAll('.sub-tab').forEach(t => t.classList.remove('active'));
     banner.classList.remove('active');
+    banner.innerHTML = '';
     stopCarousel();
     const bannerTec = document.getElementById('brandBannerTec');
     const wppBar = document.getElementById('tecWppBar');
-    if (bannerTec) bannerTec.classList.remove('active');
+    if (bannerTec) { bannerTec.classList.remove('active'); bannerTec.innerHTML = ''; }
     if (wppBar) wppBar.classList.remove('active');
     document.getElementById('productsGrid').innerHTML = `
       <div class="empty-state">
@@ -255,7 +256,7 @@ function filterProducts(cat, btn) {
       </div>`;
     const bannerTec = document.getElementById('brandBannerTec');
     const wppBar = document.getElementById('tecWppBar');
-    if (bannerTec) bannerTec.classList.remove('active');
+    if (bannerTec) { bannerTec.classList.remove('active'); bannerTec.innerHTML = ''; }
     if (wppBar) wppBar.classList.remove('active');
     setTimeout(() => startCarousel(), 50);
     renderProducts(cat);
@@ -263,6 +264,7 @@ function filterProducts(cat, btn) {
   } else if (cat === 'tecnologia') {
     subTabs.classList.remove('active');
     banner.classList.remove('active');
+    banner.innerHTML = '';
     stopCarousel();
     const bannerTec = document.getElementById('brandBannerTec');
     const wppBar = document.getElementById('tecWppBar');
@@ -313,13 +315,11 @@ function filterBrand(brand, btn) {
   
   if (brand === 'sirfausto') {
   banner.innerHTML = `
-    <div class="carousel sf-carousel">
-      <div class="carousel-track" id="carouselTrack">
-        <picture>
-          <source media="(max-width: 768px)" srcset="img/brand/banners/bannersirfaustoapp.png">
-          <img src="img/brand/banners/bannersirfaustoweb.png" alt="Sir Fausto">
-        </picture>
-      </div>
+    <div class="sf-banner-static">
+      <picture>
+        <source media="(max-width: 768px)" srcset="img/brand/banners/bannersirfaustoapp.png">
+        <img src="img/brand/banners/bannersirfaustoweb.png" alt="Sir Fausto">
+      </picture>
     </div>
   `;
 } else if (brand === 'marca2') {
@@ -360,7 +360,7 @@ function renderProductsList(products) {
           <span class="qty-num">${inCart.qty}</span>
           <button class="qty-btn" onclick="event.stopPropagation(); increaseQty(${p.id})">+</button>
         </div>`
-      : `<button class="add-btn" onclick="addToCart(${p.id})">+ Agregar</button>`;
+      : `<button class="add-btn" onclick="event.stopPropagation(); addToCart(${p.id})">+ Agregar</button>`;
     
     return `
      <div class="product-card" data-id="${p.id}" ${p.img ? `onclick="openLightbox('${p.img}', '${p.name}')"` : ''}>

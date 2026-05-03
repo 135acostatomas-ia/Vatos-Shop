@@ -558,13 +558,18 @@ h1 {
  
 .cart-item-img {
   width: 60px; height: 60px;
-  object-fit: cover;
   background: var(--verde-oscuro);
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 1.5rem;
   flex-shrink: 0;
+  overflow: hidden;
+  border-radius: 4px;
+}
+.cart-item-img img {
+  width: 100%; height: 100%;
+  object-fit: cover;
 }
  
 .cart-item-info { flex: 1; }
@@ -1280,13 +1285,14 @@ footer {
   background: var(--negro);
 }
 
-/* Sir Fausto web — 1440×500 */
-.sf-carousel .carousel-track picture img {
+/* Sir Fausto banner estático */
+.sf-banner-static picture img {
   width: 100%;
   height: auto;
   aspect-ratio: 1440 / 500;
   object-fit: cover;
   object-position: center;
+  display: block;
 }
 
 @media (max-width: 768px) {
@@ -1298,7 +1304,7 @@ footer {
   }
 
   /* Sir Fausto app — 916×1717 */
-  .sf-carousel .carousel-track picture img {
+  .sf-banner-static picture img {
     width: 100%;
     height: auto;
     aspect-ratio: 916 / 1717;
