@@ -162,7 +162,7 @@ nav {
   justify-content: center;
   position: relative;
   overflow: hidden;
-  padding: 0 2.5rem;
+  padding: 8vh 2.5rem 0;
 }
  
 .hero-bg {
