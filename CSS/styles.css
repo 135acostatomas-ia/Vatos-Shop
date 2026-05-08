@@ -158,10 +158,11 @@ nav {
 #hero {
   height: 100vh;
   display: flex;
-  align-items: flex-end;
+  align-items: center;
+  justify-content: center;
   position: relative;
   overflow: hidden;
-  padding: 0 2.5rem 4rem;
+  padding: 0 2.5rem;
 }
  
 .hero-bg {
