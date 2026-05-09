@@ -206,7 +206,7 @@ nav {
   width: clamp(340px, 46vw, 580px);
   height: auto;
   display: block;
-  margin: 0 auto 2rem;
+  margin: -3 auto -5rem;
   filter: drop-shadow(0 0 40px rgba(170,255,0,0.5));
   animation: fadeUp 1s ease 0s both;
 }
@@ -1488,4 +1488,8 @@ footer {
   #brandBannerTec .carousel-track picture img {
     height: 600px;
   }
+}
+
+.hero-logo {
+  margin-top: 45vh; /* empuja el logo hacia abajo */
 }
