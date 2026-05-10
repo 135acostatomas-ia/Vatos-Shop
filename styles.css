@@ -91,8 +91,9 @@ nav {
   z-index: 500;
   height: var(--navbar-h);
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
+  gap: 2rem;
   padding: 0 2.5rem;
   background: rgba(8,8,8,0.92);
   backdrop-filter: blur(12px);
@@ -133,6 +134,7 @@ nav {
 .nav-links a:hover { color: var(--verde-fluor); }
  
 .cart-btn {
+  margin-left: auto;
   background: var(--verde-fluor);
   color: var(--negro);
   border: none;
@@ -196,6 +198,7 @@ nav {
   z-index: 2;
   max-width: 900px;
   margin: 0 auto;
+  padding-top: var(--navbar-h);
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -863,8 +866,12 @@ footer {
   .cart-btn { padding: 0.5rem 0.9rem; font-size: 0.7rem; }
  
   /* Hero */
-  #hero { height: 100svh; padding: 0 1.2rem 3rem; }
-  h1 { font-size: clamp(4rem, 20vw, 7rem); }
+  #hero { height: 100svh; padding: 0 1.2rem 1rem; align-items: flex-start; padding-top: 0; }
+  .hero-content { padding-top: 1rem; justify-content: center; min-height: 100svh; }
+  .hero-logo { width: min(65vw, 200px); margin-bottom: 0; }
+  h1 { font-size: clamp(3.5rem, 18vw, 6rem); margin-bottom: 0; }
+  .hero-sub { margin-top: 0.5rem; }
+  .reservar-btn { margin-top: 1rem; padding: 0.8rem 1.8rem; font-size: 1.1rem; }
   .hero-scroll { display: none; }
   .hero-tag { font-size: 0.6rem; }
  
@@ -907,6 +914,7 @@ footer {
 .bottom-nav {
   display: none;          /* oculto por defecto en desktop */
   position: fixed;
+  top: auto;
   bottom: 0; left: 0; right: 0;
   z-index: 600;
   background: rgba(8,8,8,0.95);
@@ -1412,9 +1420,15 @@ footer {
   }
   .bottom-nav {
     display: flex !important;
+    position: fixed !important;
+    top: auto !important;
+    bottom: 0 !important;
   }
   body {
     padding-bottom: 70px;
+  }
+  .toast {
+    bottom: calc(70px + 1rem);
   }
 }
 
@@ -1494,6 +1508,3 @@ footer {
   }
 }
 
-.hero-logo {
-  margin-top: 45vh; /* empuja el logo hacia abajo */
-}
