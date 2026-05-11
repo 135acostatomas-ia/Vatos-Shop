@@ -394,7 +394,7 @@ function sendToWhatsApp() {
   const total = cart.reduce((acc, i) => acc + i.price * i.qty, 0);
 
   const msg = [
-    `🛒 *Pedido desde Vatos Studio*`,
+    `📝 *Pedido desde Vatos Studio*`,
     ``,
     ...lines,
     ``,
