@@ -41,9 +41,9 @@ const PRODUCTS = [
 { id: 8,  name: "Óleo Esencial Barba 30ml",   cat: "barber", brand: "sirfausto", price: 17000, img: "img/productos/Fragancias/sirfausto/oleoesencialbarba.png", tag: null },
 { id: 9,  name: "Hybrid Clay Pure 50ml",      cat: "barber", brand: "sirfausto", price: 1400, img: "img/productos/Fragancias/sirfausto/hybridclay.png",       tag: null },
   // FRAGANCIAS
-{ id: 20, name: "Lattafa Khamrah",                 cat: "fragancia", price: 16500, img: "img/productos/Fragancias/LattafaKhamrah.png",       tag: null },
+{ id: 20, name: "Lattafa Khamrah",                 cat: "fragancia", price: 17000, img: "img/productos/Fragancias/LattafaKhamrah.png",       tag: null },
 { id: 21, name: "Lattafa Asad",                    cat: "fragancia", price: 16500, img: "img/productos/Fragancias/LattafaAsad.png",          tag: null },
-{ id: 22, name: "Afnan 9PM Negro",                 cat: "fragancia", price: 16500, img: "img/productos/Fragancias/afnan9pm.png",        tag: null },
+{ id: 22, name: "Afnan 9PM Negro",                 cat: "fragancia", price: 17000, img: "img/productos/Fragancias/afnan9pm.png",        tag: null },
 { id: 23, name: "Armaf Club de Nuit Intense Man",  cat: "fragancia", price: 16500, img: "img/productos/Fragancias/armafclub.png", tag: null },
 ];
 
