@@ -31,20 +31,20 @@ const WPP_NUMBER = "5491164562757";
 
 const PRODUCTS = [
   // BARBER — SIR FAUSTO (en stock)
-{ id: 1,  name: "Shampoo para Barba 100ml",   cat: "barber", brand: "sirfausto", price: 0, img: "img/productos/Fragancias/sirfausto/shampoobarba.png",     tag: null },
-{ id: 2,  name: "Shampoo para Cabello 100ml", cat: "barber", brand: "sirfausto", price: 0, img: "img/productos/Fragancias/sirfausto/shampocabello.png",    tag: null },
-{ id: 3,  name: "Old Wax Suave 50ml",         cat: "barber", brand: "sirfausto", price: 0, img: "img/productos/Fragancias/sirfausto/oldwaxsuave.png",      tag: null },
-{ id: 4,  name: "Old Wax Fuerte 50ml",        cat: "barber", brand: "sirfausto", price: 0, img: "img/productos/Fragancias/sirfausto/oldwaxfuerte.png",     tag: null },
-{ id: 5,  name: "Forming Paste 50ml",         cat: "barber", brand: "sirfausto", price: 0, img: "img/productos/Fragancias/sirfausto/formingpaste.png",     tag: null },
-{ id: 6,  name: "Pomada Brillante 50ml",      cat: "barber", brand: "sirfausto", price: 0, img: "img/productos/Fragancias/sirfausto/pomadabrillante.png",  tag: null },
-{ id: 7,  name: "Pomada Opaca 50ml",          cat: "barber", brand: "sirfausto", price: 0, img: "img/productos/Fragancias/sirfausto/pomadaopaca.png",      tag: null },
-{ id: 8,  name: "Óleo Esencial Barba 30ml",   cat: "barber", brand: "sirfausto", price: 0, img: "img/productos/Fragancias/sirfausto/oleoesencialbarba.png", tag: null },
-{ id: 9,  name: "Hybrid Clay Pure 50ml",      cat: "barber", brand: "sirfausto", price: 0, img: "img/productos/Fragancias/sirfausto/hybridclay.png",       tag: null },
+{ id: 1,  name: "Shampoo para Barba 100ml",   cat: "barber", brand: "sirfausto", price: 9500, img: "img/productos/Fragancias/sirfausto/shampoobarba.png",     tag: null },
+{ id: 2,  name: "Shampoo para Cabello 100ml", cat: "barber", brand: "sirfausto", price: 11500, img: "img/productos/Fragancias/sirfausto/shampocabello.png",    tag: null },
+{ id: 3,  name: "Old Wax Suave 50ml",         cat: "barber", brand: "sirfausto", price: 15500, img: "img/productos/Fragancias/sirfausto/oldwaxsuave.png",      tag: null },
+{ id: 4,  name: "Old Wax Fuerte 50ml",        cat: "barber", brand: "sirfausto", price: 15500, img: "img/productos/Fragancias/sirfausto/oldwaxfuerte.png",     tag: null },
+{ id: 5,  name: "Forming Paste 50ml",         cat: "barber", brand: "sirfausto", price: 16000, img: "img/productos/Fragancias/sirfausto/formingpaste.png",     tag: null },
+{ id: 6,  name: "Pomada Brillante 50ml",      cat: "barber", brand: "sirfausto", price: 19000, img: "img/productos/Fragancias/sirfausto/pomadabrillante.png",  tag: null },
+{ id: 7,  name: "Pomada Opaca 50ml",          cat: "barber", brand: "sirfausto", price: 17000, img: "img/productos/Fragancias/sirfausto/pomadaopaca.png",      tag: null },
+{ id: 8,  name: "Óleo Esencial Barba 30ml",   cat: "barber", brand: "sirfausto", price: 17000, img: "img/productos/Fragancias/sirfausto/oleoesencialbarba.png", tag: null },
+{ id: 9,  name: "Hybrid Clay Pure 50ml",      cat: "barber", brand: "sirfausto", price: 1400, img: "img/productos/Fragancias/sirfausto/hybridclay.png",       tag: null },
   // FRAGANCIAS
-{ id: 20, name: "Lattafa Khamrah",                 cat: "fragancia", price: 15500, img: "img/productos/Fragancias/LattafaKhamrah.png",       tag: null },
-{ id: 21, name: "Lattafa Asad",                    cat: "fragancia", price: 16800, img: "img/productos/Fragancias/LattafaAsad.png",          tag: null },
-{ id: 22, name: "Afnan 9PM Negro",                 cat: "fragancia", price: 16800, img: "img/productos/Fragancias/afnan9pm.png",        tag: null },
-{ id: 23, name: "Armaf Club de Nuit Intense Man",  cat: "fragancia", price: 17900, img: "img/productos/Fragancias/armafclub.png", tag: null },
+{ id: 20, name: "Lattafa Khamrah",                 cat: "fragancia", price: 16500, img: "img/productos/Fragancias/LattafaKhamrah.png",       tag: null },
+{ id: 21, name: "Lattafa Asad",                    cat: "fragancia", price: 16500, img: "img/productos/Fragancias/LattafaAsad.png",          tag: null },
+{ id: 22, name: "Afnan 9PM Negro",                 cat: "fragancia", price: 16500, img: "img/productos/Fragancias/afnan9pm.png",        tag: null },
+{ id: 23, name: "Armaf Club de Nuit Intense Man",  cat: "fragancia", price: 16500, img: "img/productos/Fragancias/armafclub.png", tag: null },
 ];
 
 /* ── 3. CARRITO ───────────────────────────── */
