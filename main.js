@@ -231,7 +231,7 @@ function filterProducts(cat, btn) {
     document.getElementById('productsGrid').innerHTML = `
       <div class="empty-state">
         <div class="empty-state-title">Elegí una marca</div>
-        <div class="empty-state-text">// Tocá Sir Fausto, Marca 2 u Otros</div>
+        <div class="empty-state-text">// Tocá Sir Fausto</div>
       </div>`;
 
   } else if (cat === 'fragancia') {
@@ -322,10 +322,6 @@ function filterBrand(brand, btn) {
       </picture>
     </div>
   `;
-} else if (brand === 'marca2') {
-  banner.innerHTML = `<div class="brand-banner-placeholder">MARCA 2</div>`;
-} else {
-  banner.innerHTML = `<div class="brand-banner-placeholder">OTROS PRODUCTOS</div>`;
 }
   
   // Filtrar productos por marca
