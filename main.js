@@ -39,7 +39,7 @@ const PRODUCTS = [
 { id: 6,  name: "Pomada Brillante 50ml",      cat: "barber", brand: "sirfausto", price: 19000, img: "img/productos/Fragancias/sirfausto/pomadabrillante.png",  tag: null },
 { id: 7,  name: "Pomada Opaca 50ml",          cat: "barber", brand: "sirfausto", price: 17000, img: "img/productos/Fragancias/sirfausto/pomadaopaca.png",      tag: null },
 { id: 8,  name: "Óleo Esencial Barba 30ml",   cat: "barber", brand: "sirfausto", price: 17000, img: "img/productos/Fragancias/sirfausto/oleoesencialbarba.png", tag: null },
-{ id: 9,  name: "Hybrid Clay Pure 50ml",      cat: "barber", brand: "sirfausto", price: 1400, img: "img/productos/Fragancias/sirfausto/hybridclay.png",       tag: null },
+{ id: 9,  name: "Hybrid Clay Pure 50ml",      cat: "barber", brand: "sirfausto", price: 14000, img: "img/productos/Fragancias/sirfausto/hybridclay.png",       tag: null },
   // FRAGANCIAS
 { id: 20, name: "Lattafa Khamrah",                 cat: "fragancia", price: 17000, img: "img/productos/Fragancias/LattafaKhamrah.png",       tag: null },
 { id: 21, name: "Lattafa Asad",                    cat: "fragancia", price: 16500, img: "img/productos/Fragancias/LattafaAsad.png",          tag: null },
