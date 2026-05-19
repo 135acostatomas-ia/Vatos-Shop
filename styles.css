@@ -781,6 +781,79 @@ h1 {
 .gallery-item:hover img { filter: grayscale(0%) contrast(1.15); transform: scale(1.03); }
  
  
+/* ── RESERVAR NAV BTN ─────────────────────── */
+.reservar-nav-btn {
+  background: transparent;
+  border: 1px solid var(--verde-fluor);
+  color: var(--verde-fluor);
+  padding: 0.45rem 1.1rem;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: none;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+.reservar-nav-btn:hover {
+  background: var(--verde-fluor);
+  color: var(--negro);
+}
+
+/* ── EL EQUIPO ────────────────────────────── */
+#equipo {
+  padding: 5rem 2.5rem 4rem;
+  scroll-margin-top: var(--navbar-h);
+}
+
+.equipo-list {
+  border: 1px solid var(--gris-borde);
+}
+
+.equipo-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 2.5rem;
+  border-bottom: 1px solid var(--gris-borde);
+  transition: background 0.2s;
+}
+.equipo-item:last-child { border-bottom: none; }
+.equipo-item:hover { background: rgba(170,255,0,0.03); }
+
+.equipo-nombre {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2.5rem;
+  letter-spacing: 0.05em;
+  color: #fff;
+}
+
+.equipo-reservar {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--negro);
+  background: var(--verde-fluor);
+  border: none;
+  padding: 0.6rem 1.4rem;
+  cursor: none;
+  transition: all 0.2s;
+}
+.equipo-reservar:hover {
+  background: #fff;
+  transform: skewX(-3deg);
+}
+
+@media (max-width: 768px) {
+  #equipo { padding: 3rem 1rem 2rem; }
+  .equipo-item { padding: 1.5rem 1rem; }
+  .equipo-nombre { font-size: 2rem; }
+  .reservar-nav-btn { display: none; }
+}
+
 /* ── 11. FOOTER ───────────────────────────── */
 footer {
   padding: 2rem 2.5rem;
