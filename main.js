@@ -45,6 +45,9 @@ const PRODUCTS = [
 { id: 21, name: "Lattafa Asad",                    cat: "fragancia", price: 16000, img: "img/productos/Fragancias/LattafaAsad.png",          tag: null },
 { id: 22, name: "Afnan 9PM Negro",                 cat: "fragancia", price: 16000, img: "img/productos/Fragancias/afnan9pm.png",        tag: null },
 { id: 23, name: "Armaf Club de Nuit Intense Man",  cat: "fragancia", price: 16000, img: "img/productos/Fragancias/armafclub.png", tag: null },
+{ id: 24, name: "Afnan 9PM Night Out",             cat: "fragancia", price: 16000, img: "img/productos/Fragancias/AFNAN-9PM-NIGHT-OUT.png",  tag: null },
+{ id: 25, name: "Lattafa Badee Al Oud",            cat: "fragancia", price: 16000, img: "img/productos/Fragancias/LATTAFA-BADEE-AL-OUD.png", tag: null },
+{ id: 26, name: "Lattafa The Kingdom",             cat: "fragancia", price: 16000, img: "img/productos/Fragancias/LATTAFA-THE-KINGDOMG.png", tag: null },
 ];
 
 /* ── 3. CARRITO ───────────────────────────── */
